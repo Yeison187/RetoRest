@@ -13,3 +13,7 @@ Feature: Consumir recurso pokeapi
       | bulbasaur |
       | ivysaur   |
 
+  Scenario: Recurso no encontrado
+    Given que el usuario realiza una petición no valida
+    Then el codigo de respuesta debe ser el de no encontrado
+

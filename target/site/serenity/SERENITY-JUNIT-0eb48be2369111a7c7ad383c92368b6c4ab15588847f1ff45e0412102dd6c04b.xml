@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Consumir recurso pokeapi" skipped="0" tests="2" time="3.53" timestamp="2021-10-22 06:28:39"><testcase name="Pokemon registrado"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Consumir recurso pokeapi" skipped="0" tests="3" time="5.71" timestamp="2021-10-23 08:05:58"><testcase name="Pokemon registrado"/><testcase name="Recurso no encontrado"/></testsuite>
