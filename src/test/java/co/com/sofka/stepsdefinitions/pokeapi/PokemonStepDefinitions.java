@@ -10,6 +10,7 @@ import net.serenitybdd.screenplay.rest.abilities.CallAnApi;
 
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.core.IsEqual.equalTo;
 
@@ -33,17 +34,17 @@ public class PokemonStepDefinitions {
     @When("se valide que el código de respuesta exitoso")
     public void validarCodigoRespuesta(){
         actor.should(
-                seeThat("El código de respuesta", ResponseCode.was(),equalTo(200))
+                seeThat("El código de respuesta", ResponseCode.was(),equalTo(SC_OK))
         );
     }
 
     @Then("^se validara que en los datos de retorno se encuentre el pokemon (.+)$")
     public void validarInformacion (String pokemon){
         Result pokemones = new GetPokemones().answeredBy(actor).getResults().stream()
-                .filter(x -> x.getName().equals("bulbasaur") ).findFirst().orElse(null);
+                .filter(x -> x.getName().equals(pokemon) ).findFirst().orElse(null);
 
         actor.should(
-                seeThat("El nombre del pokemon no esta",act -> pokemones,notNullValue())
+                seeThat("La respuesta ",act -> pokemones,notNullValue())
         );
 
         actor.should(
